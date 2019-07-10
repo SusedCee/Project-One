@@ -1,0 +1,42 @@
+body {
+	background-image: url(../img/flower.jpg);   /*Lourdes Villagomez Design */
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body, 
+html {
+	min-height: 100%;
+}
+
+h1 {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 60px;
+	text-shadow: grey;
+}
+
+.cardbtn {
+	width: 150px;
+	height: auto;
+}
+
+.buttonImage {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+div {	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-flow: wrap;
+}
+
+button {
+	margin: 5px;
+}
+
