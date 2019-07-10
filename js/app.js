@@ -19,13 +19,17 @@ const loteriaCards = [
 	"El Dj",
 ]
 
-//
-const player = {
-	playerCards: [],
-	cardsMatched: [],
-	score: 0,
-	level: 1,
+//player start stats
+const player() {  //this is considered an object constructor More info https://www.w3schools.com/js/js_object_constructors.asp
+	this.playerCards: [];
+	this.cardsMatched: [];
+	this.score: 0;
+	this.level: 1;
 }
 
-//randomize cards in the buttons 
-// function randomizeCards 
+//randomize 4 cards in the buttons (start with 8 buttons) and make sure to double each one 
+function randomizeFourCards 
+
+
+//checkForMatch
+//
