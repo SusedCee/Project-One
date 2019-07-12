@@ -1,22 +1,22 @@
 console.log("Juego de la loteria");
 
 //All CARDS
-const loteriaCards = [
-	"El Uber", 
-	"La Notificacion",
-	"El Twitter",
-	"El Fidget Spinner",
-	"El Troll",
-	"La Feminist",
-	"La Selfie",
-	"La Thigh Gap",
-	"El Face Swap",
-	"El Global Warming",
-	"El Hipster",
-	"La Flower Crown",
-	"El Tinder",
-	"El Nerd",
-	"El Dj",
+const loteriaCards = [ 
+	"elDj",
+	"elFaceSwap",
+	"elFidgetSpinner",
+	"elGlobalWarming",
+	"elHipster",
+	"elNerd",
+	"elTinder",
+	"elTroll",
+	"elTwitter",
+	"elUber",
+	"laFeminist",
+	"laFlowerCrown",
+	"laNotificacion",
+	"laSelfie",
+	"laThighGap",	
 ]
 
 //PLAYER START STATS 
@@ -24,7 +24,7 @@ const loteriaCards = [
 class Player {  //this is considered an object constructor More info https://www.w3schools.com/js/js_object_constructors.asp
 	constructor(playerCards, finalShuffled, cardsMatched, score, level){
 	this.playerCards = playerCards;
-	this.finalShuffled = [];
+	// this.finalShuffled = [];
 	this.cardsMatched = 0;
 	this.score = score;
 	this.level = level;
@@ -32,7 +32,7 @@ class Player {  //this is considered an object constructor More info https://www
 }
 
 //LEVEL ONE
-var levelOne = new Player([],[], 0, 0, 1);
+var levelOne = new Player([], 0, 0, 1);
 	
 //RANDOMIZE FOUR CARDS
 //double each card to have a total of 8 cards
@@ -48,6 +48,134 @@ function randomizeFourCards () {
 	}
 }
 console.log(levelOne.playerCards);
+
+
+
+
+//CONNECT CARD TO BUTTON!! 
+//first card to first button, second card to second button, third card to third button ...and on
+//jquery button in html with array.
+connectCards()
+function connectCards (){
+$("#0").click(function(){
+	$('#0 img').attr('src', `img/${levelOne.playerCards[0]}.jpg`);
+});
+$("#1").click(function(){
+	$('#1 img').attr('src', `img/${levelOne.playerCards[1]}.jpg`);
+});
+$("#2").click(function(){
+	$('#2 img').attr('src', `img/${levelOne.playerCards[2]}.jpg`);
+});
+$("#3").click(function(){
+	$('#3 img').attr('src', `img/${levelOne.playerCards[3]}.jpg`);
+});
+$("#4").click(function(){
+	$('#4 img').attr('src', `img/${levelOne.playerCards[4]}.jpg`);
+});
+$("#5").click(function(){
+	$('#5 img').attr('src', `img/${levelOne.playerCards[5]}.jpg`);
+});
+$("#6").click(function(){
+	$('#6 img').attr('src', `img/${levelOne.playerCards[6]}.jpg`);
+});
+$("#7").click(function(){
+	$('#7 img').attr('src', `img/${levelOne.playerCards[7]}.jpg`);
+});
+}
+
+//when user clicks the card flip that one and let them flip one more
+// add point to score and freeze the cards matched 
+// if not a match 2 seconds to continue seeing then switch back
+// function clickCard
+
+
+// Check to see if the two cards are a match
+// function checkForMatch
+
+
+
+
+
+
+
+
+
+//randomize 6 cards in the buttons and make sure to double each one 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CHANGE IMAGE IF CLICKED
+//when user clicks on a certain card show image that goes with string Resource https://wpbeaches.com/swap-image-via-button-with-jquery/
+//and show on screen
+//resource https://www.youtube.com/watch?v=SGKXZUGe2sw
+
+// function changeImage (){
+
+// 	$(".cardbtn").on({
+// 		"click": function(){
+// 			if ($(".cardbtn") === "ElUber"){
+// 				$(".buttonImage").attr("src", ".../img/elUber.jpg");
+// 			} else if  ($(".cardbtn") === "La Notificacion") {
+// 				$(".buttonImage").attr("src", ".../img/laNotificacion.jpg");
+// 			} else if ($(".cardbtn") === "El Twitter") {
+// 				$(".buttonImage").attr("src", ".../img/elTwitter.jpg");
+// 			} else if ($(".cardbtn") === "El Fidget Spinner") {
+// 				$(".buttonImage").attr("src", ".../img/.elFidgetSpinner.jpg");
+// 			} else if ($(".cardbtn") === "El Troll") {
+// 				$(".buttonImage").attr("src", ".../img/elTroll.jpg");
+// 			} else if ($(".cardbtn") === "La Feminist") {
+// 				$(".buttonImage").attr("src", ".../img/laFeminist.jpg");
+// 			} else if ($(".cardbtn") === "La Selfie") {
+// 				$(".buttonImage").attr("src", ".../img/laSelfie.jpg");
+// 			} else if ($(".cardbtn") === "La Thigh Gap") {
+// 				$(".buttonImage").attr("src", ".../img/laThighGap.jpg");
+// 			} else if ($(".cardbtn") === "El Face Swap") {
+// 				$(".buttonImage").attr("src", ".../img/elFaceSwap.jpg");
+// 			} else if ($(".cardbtn") === "Global Warming") {
+// 				$(".buttonImage").attr("src", ".../img/globalWarming.jpg");
+// 			} else if ($(".cardbtn") === "El Hipster") {
+// 				$(".buttonImage").attr("src", ".../img/elHipster.jpg");
+// 			} else if ($(".cardbtn") === "La Flower Crown") {
+// 				$(".buttonImage").attr("src", ".../img/laFlowerCrown.jpg");
+// 			} else if ($(".cardbtn") === "El Tinder") {
+// 				$(".buttonImage").attr("src", ".../img/elTinder.jpg");
+// 			} else if ($(".cardbtn") === "El Nerd") {
+// 				$(".buttonImage").attr("src", ".../img/elNerd.jpg");
+// 			} else if ($(".cardbtn") === "El Dj") {
+// 				$(".buttonImage").attr("src", ".../img/elDj.jpg");
+// 			}
+// 		}
+// 	})
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 // // SHUFFLE CARDS
 // function shuffleCards (array) {
@@ -164,94 +292,6 @@ console.log(levelOne.playerCards);
 //     }
 //     return shuffledDeck;
 // }
-
-
-//CONNECT CARD TO BUTTON!! 
-//first card to first button
-//second card to secon button
-//third card to second button 
-//...and on
-//jquery button in html with array.
-
-
-
-
-
-
-
-
-
-//when user clicks on a certain card show image that goes with string 
-//and show on screen
-
-// function changeImage(){
-
-// 	$(".cardbtn").on({
-// 		"click": function(){
-// 			if ($(".cardbtn") === "ElUber"){
-// 				$(".buttonImage").attr("src", ".../img/elUber.jpg");
-// 			} else if  ($(".cardbtn") === "La Notificacion") {
-// 				$(".buttonImage").attr("src", ".../img/laNotificacion.jpg");
-// 			} else if ($(".cardbtn") === "El Twitter") {
-// 				$(".buttonImage").attr("src", ".../img/elTwitter.jpg");
-// 			} else if ($(".cardbtn") === "El Fidget Spinner") {
-// 				$(".buttonImage").attr("src", ".../img/.elFidgetSpinner.jpg");
-// 			} else if ($(".cardbtn") === "El Troll") {
-// 				$(".buttonImage").attr("src", ".../img/elTroll.jpg");
-// 			} else if ($(".cardbtn") === "La Feminist") {
-// 				$(".buttonImage").attr("src", ".../img/laFeminist.jpg");
-// 			} else if ($(".cardbtn") === "La Selfie") {
-// 				$(".buttonImage").attr("src", ".../img/laSelfie.jpg");
-// 			} else if ($(".cardbtn") === "La Thigh Gap") {
-// 				$(".buttonImage").attr("src", ".../img/laThighGap.jpg");
-// 			} else if ($(".cardbtn") === "El Face Swap") {
-// 				$(".buttonImage").attr("src", ".../img/elFaceSwap.jpg");
-// 			} else if ($(".cardbtn") === "Global Warming") {
-// 				$(".buttonImage").attr("src", ".../img/globalWarming.jpg");
-// 			} else if ($(".cardbtn") === "El Hipster") {
-// 				$(".buttonImage").attr("src", ".../img/elHipster.jpg");
-// 			} else if ($(".cardbtn") === "La Flower Crown") {
-// 				$(".buttonImage").attr("src", ".../img/laFlowerCrown.jpg");
-// 			} else if ($(".cardbtn") === "El Tinder") {
-// 				$(".buttonImage").attr("src", ".../img/elTinder.jpg");
-// 			} else if ($(".cardbtn") === "El Nerd") {
-// 				$(".buttonImage").attr("src", ".../img/elNerd.jpg");
-// 			} else if ($(".cardbtn") === "El Dj") {
-// 				$(".buttonImage").attr("src", ".../img/elDj.jpg");
-// 			}
-// 		}
-// 	});
-// }
-
-
-
-
-//when user clicks the card flip that one and let them flip one more
-// add point to score and freeze the cards matched 
-// if not a match 2 seconds to continue seeing then switch back
-// function clickCard
-
-
-// Check to see if the two cards are a match
-// function checkForMatch
-
-
-
-
-
-
-
-
-
-//randomize 6 cards in the buttons and make sure to double each one 
-
-
-
-
-
-
-
-
 
 
 
