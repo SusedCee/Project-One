@@ -22,7 +22,7 @@ const loteriaCards = [
 //PLAYER START STATS 
 //this is the class declaration - constructor function
 class Player {  //this is considered an object constructor More info https://www.w3schools.com/js/js_object_constructors.asp
-	constructor(playerCards, finalShuffled, cardsMatched, score, level){
+	constructor(playerCards, cardsMatched, score, level){
 	this.playerCards = playerCards;
 	this.cardsMatched = 0;
 	this.score = score;
@@ -48,7 +48,7 @@ function randomizeFourCards () {
 }
 console.log(levelOne.playerCards);
 
-//CONNECT CARD TO BUTTON!! 
+//CONNECT CARD TO BUTTON AND SHOW IMAGE!! 
 //first card to first button, second card to second button, third card to third button ...and on
 //jquery button in html with array.
 
@@ -59,69 +59,66 @@ function connectCards (){
 $("#0").click(function(){
 	$('#0 img').attr('src', `img/${levelOne.playerCards[0]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#1").click(function(){
 	$('#1 img').attr('src', `img/${levelOne.playerCards[1]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#2").click(function(){
 	$('#2 img').attr('src', `img/${levelOne.playerCards[2]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#3").click(function(){
 	$('#3 img').attr('src', `img/${levelOne.playerCards[3]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#4").click(function(){
 	$('#4 img').attr('src', `img/${levelOne.playerCards[4]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#5").click(function(){
 	$('#5 img').attr('src', `img/${levelOne.playerCards[5]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#6").click(function(){
 	$('#6 img').attr('src', `img/${levelOne.playerCards[6]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 $("#7").click(function(){
 	$('#7 img').attr('src', `img/${levelOne.playerCards[7]}.jpg`);
 	click += 1;
-	// console.log(click);
 });
 
 }
 
 
-// when card flipped let them flip one more with a timer of 2 seconds
+// when card flipped let them flip one more with a timer of 4 seconds
 // if they are both same add point to score and freeze the cards matched 
 // if not a match 2 seconds to continue seeing then switch back
 
-// var twoTimer = setInterval(twoCardsTimer, 4000);
-
 twoClicks()
 function twoClicks () { //https://www.w3schools.com/jsref/met_win_settimeout.asp
-	// for (var i = 0; i < levelOne.playerCards.length; i++){
 		if (click = 2){
 			setTimeout(function(){$(".buttonImage").attr("src", "img/zbackCard.jpg"); }, 4000);//set timer
+		// checkMatch()
+
+		//freeze those images
+		//add point 
+		//clear click
+		//how to keep flipping following two cards
 		}
 }
-
-
-
 
 // Check to see if the two cards are a match
 // function checkForMatch
 
+checkMatch()
+function checkMatch () {
+	if (click[0] === click[1]){
+	levelOne.cardsMatched += 1;
 
-
+	}
+}
 
 
 
