@@ -10,18 +10,35 @@ body {
 body, 
 html {
 	min-height: 100%;
+	cursor: pointer;
 }
 
 h1 {
 	text-align: center;
-	font-family: sans-serif;
+	font-family: 'Kavivanar', sans-serif;
 	font-size: 60px;
+	color: white;
 	text-shadow: grey;
+	margin: 35px 30px;
+}
+
+.game-info {
+	font-family: 'Staatliches', sans-serif;
+	color: white;
+	font-size: 30px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .cardbtn {
 	width: 130px;
 	height: auto;
+}
+
+.cardbtn:hover {
+	-moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+	box-shadow: 0 0 10px #ccc;
 }
 
 .buttonImage {
@@ -41,5 +58,5 @@ div {
 
 button {
 	margin: 5px;
-}
 
+}

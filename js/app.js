@@ -32,6 +32,8 @@ class Player {  //this is considered an object constructor More info https://www
 
 //LEVEL ONE
 var levelOne = new Player([], 0, 0, 1);
+$("#totalMatched").text("Matched Cards: " + levelOne.cardsMatched);
+$("#totalScore").text("Score: " + levelOne.score);
 	
 //RANDOMIZE FOUR CARDS
 //double each card to have a total of 8 cards
@@ -39,7 +41,7 @@ randomizeFourCards()
 function randomizeFourCards () {
 	const tempArr = loteriaCards.slice() //temp array takes out the cards used temporarily so the same one is not used more than once- help with Sandra and Josh
 	//wherever I would write the card array I write tempArray
-	for (let i = 0; i < 4; i++){
+	for (let i = 0; i < 6; i++){
 	const randomLoteria = Math.floor(Math.random() * tempArr.length);
 	levelOne.playerCards.push(tempArr[randomLoteria]);
 	levelOne.playerCards.push(tempArr[randomLoteria]);
@@ -53,74 +55,118 @@ console.log(levelOne.playerCards);
 //jquery button in html with array.
 
 var click = 0;
+var clickImages = [];
 
 connectCards()
 function connectCards (){
-$("#0").click(function(){
-	$('#0 img').attr('src', `img/${levelOne.playerCards[0]}.jpg`);
-	click += 1;
-});
-$("#1").click(function(){
-	$('#1 img').attr('src', `img/${levelOne.playerCards[1]}.jpg`);
-	click += 1;
-});
-$("#2").click(function(){
-	$('#2 img').attr('src', `img/${levelOne.playerCards[2]}.jpg`);
-	click += 1;
-});
-$("#3").click(function(){
-	$('#3 img').attr('src', `img/${levelOne.playerCards[3]}.jpg`);
-	click += 1;
-});
-$("#4").click(function(){
-	$('#4 img').attr('src', `img/${levelOne.playerCards[4]}.jpg`);
-	click += 1;
-});
-$("#5").click(function(){
-	$('#5 img').attr('src', `img/${levelOne.playerCards[5]}.jpg`);
-	click += 1;
-});
-$("#6").click(function(){
-	$('#6 img').attr('src', `img/${levelOne.playerCards[6]}.jpg`);
-	click += 1;
-});
-$("#7").click(function(){
-	$('#7 img').attr('src', `img/${levelOne.playerCards[7]}.jpg`);
-	click += 1;
-});
-
+	$("#0").click(function(){
+		$('#0 img').attr('src', `img/${levelOne.playerCards[0]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[0]}.jpg`);
+		twoClicks()
+	});
+	$("#1").click(function(){
+		$('#1 img').attr('src', `img/${levelOne.playerCards[1]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[1]}.jpg`);
+		twoClicks()
+	});
+	$("#2").click(function(){
+		$('#2 img').attr('src', `img/${levelOne.playerCards[2]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[2]}.jpg`);
+		twoClicks()
+	});
+	$("#3").click(function(){
+		$('#3 img').attr('src', `img/${levelOne.playerCards[3]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[3]}.jpg`);
+		twoClicks()
+	});
+	$("#4").click(function(){
+		$('#4 img').attr('src', `img/${levelOne.playerCards[4]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[4]}.jpg`);
+		twoClicks()
+	});
+	$("#5").click(function(){
+		$('#5 img').attr('src', `img/${levelOne.playerCards[5]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[5]}.jpg`);
+		twoClicks()
+	});
+	$("#6").click(function(){
+		$('#6 img').attr('src', `img/${levelOne.playerCards[6]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[6]}.jpg`);
+		twoClicks()
+	});
+	$("#7").click(function(){
+		$('#7 img').attr('src', `img/${levelOne.playerCards[7]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[7]}.jpg`);
+		twoClicks()
+	});
+		$("#8").click(function(){
+		$('#8 img').attr('src', `img/${levelOne.playerCards[8]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[8]}.jpg`);
+		twoClicks()
+	});
+		$("#9").click(function(){
+		$('#9 img').attr('src', `img/${levelOne.playerCards[9]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[9]}.jpg`);
+		twoClicks()
+	});
+		$("#10").click(function(){
+		$('#10 img').attr('src', `img/${levelOne.playerCards[10]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[10]}.jpg`);
+		twoClicks()
+	});
+		$("#11").click(function(){
+		$('#11 img').attr('src', `img/${levelOne.playerCards[11]}.jpg`);
+		click += 1;
+		clickImages.push(`img/${levelOne.playerCards[11]}.jpg`);
+		twoClicks()
+	});
 }
 
 
-// when card flipped let them flip one more with a timer of 4 seconds
-// if they are both same add point to score and freeze the cards matched 
-// if not a match 2 seconds to continue seeing then switch back
+// when (click == 2) two clicks, if the images are the same add 1 point to cardsMatched and 1 point to score
+// if clicks and they do not match change to the back card image after 4 seconds
+// clear interval of timer so it can be reused
 
-twoClicks()
 function twoClicks () { //https://www.w3schools.com/jsref/met_win_settimeout.asp
-		if (click = 2){
-			setTimeout(function(){$(".buttonImage").attr("src", "img/zbackCard.jpg"); }, 4000);//set timer
-		// checkMatch()
-
-		//freeze those images
-		//add point 
-		//clear click
-		//how to keep flipping following two cards
+		if (click == 2 && clickImages[0] === clickImages[1]) {
+			levelOne.cardsMatched += 1;
+			levelOne.score += 1;
+			click = 0;
+			clickImages = [];
+			$("#totalMatched").text("Matched Cards: " + levelOne.cardsMatched);
+			$("#totalScore").text("Score: " + levelOne.score);
+		} else if (click == 2 && clickImages[0] !== clickImages[1]) {
+				let clock1 = setTimeout(()=> {$(".buttonImage").attr("src", "img/zbackCard.jpg"); }, 4000);//set timer
+				click = 0;
+			clickImages = []
+			$("#totalMatched").text("Matched Cards: " + levelOne.cardsMatched);
+			$("#totalScore").text("Score: " + levelOne.score);
 		}
 }
 
-// Check to see if the two cards are a match
-// function checkForMatch
-
-checkMatch()
-function checkMatch () {
-	if (click[0] === click[1]){
-	levelOne.cardsMatched += 1;
-
-	}
-}
 
 
+// checkMatch()
+// function checkMatch () {
+// 	if (click[1] === click[2]){
+// 	levelOne.cardsMatched += 1;
+// 	levelOne.score += 1;
+// 	}
+// }
+
+
+			//for (i = 0; i <= click.length; i++){
 
 
 
